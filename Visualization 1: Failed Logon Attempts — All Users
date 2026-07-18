@@ -1,1 +1,18 @@
-#Objective
+# Objective :
+Display all failed logon attempts for all users , likes :
+Brute force attacks
+Password guessing 
+Multiple failed logon attempts against the same user
+----------------------------------------------------------------------------------------
+1-) Event ID Used : 4625 # Failed Logon Attempt #
+2-) KQL Filter : event.code:4625
+3-) Fields Used in the Table :
+user.name.keyword => Username
+host.hostname.keyword => The machine where the logon attempt occurred
+winlog.logon.type.keyword => Logon type 
+Count of records => Number of failed logon attempts
+4-) Filter Improvement :  # To exclude computer accounts and show only Security Logs #
+NOT user.name: *$ AND winlog.channel.keyword: Security 
+
+
+
