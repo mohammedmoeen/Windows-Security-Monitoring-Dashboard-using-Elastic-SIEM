@@ -1,0 +1,13 @@
+# Objective :
+Monitor users being added to or removed from an important local group, especially Administrators , why ? 
+This is important because adding a user to the Administrators group gives that user high privileges on the machine.
+----------------------------------------------------------------------------------------
+1-) Event ID Used : 4732 # A member was added to a security-enabled local group # , 4733 # A member was removed from a security-enabled local group#
+2-) KQL Filter : (event.code:4732 OR event.code:4733) AND group.name:administrators
+3-) Fields Used in the Table :
+user.name.keyword => The user who performed the add or remove action
+winlog.event_data.MemberSid.keyword => The member that was added or removed
+group.name.keyword => Group name
+event.action.keyword => Action type: add or remove
+host.name.keyword => The machine where the change occurred
+Count of records => Number of events
