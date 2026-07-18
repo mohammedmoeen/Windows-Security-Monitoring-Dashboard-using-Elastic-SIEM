@@ -5,7 +5,7 @@ If logon attempts appear against disabled accounts, it may indicate that someone
 1-) Event ID Used : 4625 # Failed Logon Attempt #
 2-) SubStatus Used : 0xC0000072 # The account is disabled #
 3-) KQL Filter : event.code:4625 AND winlog.event_data.SubStatus:0xC0000072
-3-) Fields Used in the Table :
+4-) Fields Used in the Table :
 user.name.keyword => Username
 host.hostname.keyword => The machine where the logon attempt occurred
 winlog.logon.type.keyword => Logon type 
